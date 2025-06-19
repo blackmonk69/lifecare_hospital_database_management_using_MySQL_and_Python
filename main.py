@@ -11,10 +11,10 @@ import complexqueries_page
 st.set_page_config(page_title="Welcome to Hospital Management Application")
 
 # --- Use st.secrets to get the database credentials ---
-db_host = st.secrets["DB_HOST"]
-db_user = st.secrets["DB_USER"]
-db_password = st.secrets["DB_PASSWORD"]
-db_name = st.secrets["DB_NAME"]
+db_host = st.secrets["mysql-2e299a17-arielteacher4-bffd.b.aivencloud.com"]
+db_user = st.secrets["avnadmin"]
+db_password = st.secrets["AVNS_CRoQMxuafcKa-gucLdI"]
+db_name = st.secrets["defaultdb"]
 
 # Establish a connection to MySQL Server using credentials from st.secrets
 mydb = mysql.connector.connect(
@@ -24,7 +24,7 @@ mydb = mysql.connector.connect(
     database=db_name
 )
 mycursor = mydb.cursor()
-
+print ("CONECCION EXITOSA")
 class MultiApp:
     def __init__(self):
         self.apps = []
