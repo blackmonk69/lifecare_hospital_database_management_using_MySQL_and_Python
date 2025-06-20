@@ -11,6 +11,7 @@ db_host = st.secrets["DB_HOST"]
 db_user = st.secrets["DB_USER"]
 db_password = st.secrets["DB_PASSWORD"]
 db_name = st.secrets["DB_NAME"]
+db_port = st.secrets["DB_PORT"] 
 
 # Function to load a Lottie animation from a file
 def load_lottie_file(filepath: str):
@@ -29,7 +30,8 @@ def create_record_in_db(table_name, data):
             host=db_host,
             user=db_user,
             password=db_password,
-            database=db_name
+            database=db_name,
+            port=db_port
         )
         cursor = mydb.cursor()
         # Insert statement for the "Patient" table
@@ -229,8 +231,10 @@ def read_table_from_db(table_name):
             host=db_host,
             user=db_user,
             password=db_password,
-            database=db_name
+            database=db_name,
+            port=db_port
         )
+        print ("CONECCION EXITOSA")
         cursor = mydb.cursor()
         # SQL query to read the entire table
         query = f"SELECT * FROM {table_name}"
